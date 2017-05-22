@@ -43,3 +43,42 @@ loDirigio(Director, Actor) :-
     actuoEn(Pelicula, Actor, Anio),
     dirigio(Director, Pelicula).
     
+
+estreno(elPadrino, 1972).
+estreno(juegoDeGemelas, 1999).
+estreno(pulpFiction, 1994).
+estreno(titanic, 1997).
+estreno(elHijoDeLaNovia, 2001).
+estreno(toyStory, 1995).
+estreno(inception, 2010).
+estreno(guardianesDeLaGalaxia, 2014).
+estreno(2012, 2009).
+    
+tieneCarrera(Actor) :-
+    actuoEn(Pelicula, Actor),
+    esNueva(Pelicula).
+    
+tieneCarrera(Director) :-
+    dirigio(Director, Pelicula),
+    esNueva(Pelicula).
+ 
+esNueva(Pelicula):-
+    estreno(Pelicula, Anio),
+    Anio > 2000.
+
+hayQuimica(Actor, Actriz) :-
+    actor(Actor),
+    actriz(actriz),
+    actuaronJuntos(Actor, Actriz, Pelicula),
+    actuaronJuntos(Actor, Actriz, OtraPelicula),
+    Pelicula /= OtraPelicula.
+    
+actuaronJuntos(Actor, Actriz, Pelicula) :-
+    actuoEn(Pelicula, Actor),
+    actuoEn(Pelicula, Actriz).
+
+ganoPremio(elPadrino).
+ganoPremio(pulpFiction).
+ganoPremio(titanic).
+ganoPremio(toyStory).
+ganoPremio(inception).
