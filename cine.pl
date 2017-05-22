@@ -71,7 +71,7 @@ hayQuimica(Actor, Actriz) :-
     actriz(actriz),
     actuaronJuntos(Actor, Actriz, Pelicula),
     actuaronJuntos(Actor, Actriz, OtraPelicula),
-    Pelicula /= OtraPelicula.
+    Pelicula \= OtraPelicula.
     
 actuaronJuntos(Actor, Actriz, Pelicula) :-
     actuoEn(Pelicula, Actor),
