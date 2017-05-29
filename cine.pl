@@ -82,3 +82,38 @@ ganoPremio(pulpFiction).
 ganoPremio(titanic).
 ganoPremio(toyStory).
 ganoPremio(inception).
+
+genero(laMasacreDeTexas, terror(12)).
+genero(scream, terror(6)).
+genero(titanic, drama(10)).
+genero(elHijoDeLaNovia, drama(300)).
+genero(toyStory, infantil(animada, 81)).
+genero(juegoDeGemelas, infantil(carneYHueso, 123)).
+genero(inception, cienciaFiccion(0)).
+
+%% terror(CantidadDeVictimas).
+%% infantil(SiEsAnimadaONo, Duracion).
+%% comedia(Subgenero, CantidadDeCliches).
+%% drama(MLDeLagrimas).
+%% cienciaFiccion(CantDeVecesQueUsanLaPalabraCuantico).
+
+estaBuena(Pelicula) :-
+   genero(Pelicula, drama(MLDeLagrimas)),
+   MLDeLagrimas > 15.
+ 
+estaBuena(Pelicula) :-
+   genero(Pelicula, infantil(carneYHueso, Duracion)),
+   Duracion > 80.
+ 
+estaBuena(Pelicula) :-
+   genero(Pelicula, infantil(animada, Duracion)),
+   Duracion < 90.
+ 
+ 
+estaBuena(Pelicula) :-
+   genero(Pelicula, terror(CantidadDeVictimas)),
+   CantidadDeVictimas > 10.
+ 
+estaBuena(Pelicula) :- genero(Pelicula, cienciaFiccion(_)).
+
+
