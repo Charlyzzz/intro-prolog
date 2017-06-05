@@ -68,7 +68,7 @@ esNueva(Pelicula):-
 
 hayQuimica(Actor, Actriz) :-
     actor(Actor),
-    actriz(actriz),
+    actriz(Actriz),
     actuaronJuntos(Actor, Actriz, Pelicula),
     actuaronJuntos(Actor, Actriz, OtraPelicula),
     Pelicula \= OtraPelicula.
